@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoStore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="info-loja">
+            <h1>TecnoStore</h1>
+            <p>Produtos de tecnologia para o seu dia a dia</p>
+        </div>
+
+        <nav class="barra-acoes">
+            <span id="statusUsuario">Visitante</span>
+            <button id="btnAbrirAuth">Entrar / Cadastrar</button>
+            <button id="btnMeusPedidos" class="oculto">Meus Pedidos</button>
+            <button id="btnPainelAdmin" class="oculto">Painel Admin</button>
+            <button id="btnLogout" class="oculto">Sair</button>
+            <button id="btnIrCarrinho">Carrinho (<span id="contador">0</span>)</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="areaAutenticacao" class="painel-box oculto">
+            <div class="abas-auth">
+                <button id="abaLogin" class="ativa">Login</button>
+                <button id="abaCadastro">Cadastro</button>
+                <button id="btnFecharAuth">Fechar</button>
+            </div>
+
+            <form id="formLogin">
+                <h3>Entrar na conta</h3>
+                <input type="email" id="loginEmail" placeholder="E-mail" required>
+                <input type="password" id="loginSenha" placeholder="Senha" required>
+                <button type="submit">Entrar</button>
+            </form>
+
+            <form id="formCadastro" class="oculto">
+                <h3>Criar conta de cliente</h3>
+                <input type="text" id="cadastroNome" placeholder="Nome completo" required>
+                <input type="email" id="cadastroEmail" placeholder="E-mail" required>
+                <input type="password" id="cadastroSenha" placeholder="Senha (mín. 6 caracteres)" required>
+                <input type="password" id="cadastroConfirmacao" placeholder="Confirmar senha" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+            <p id="mensagemAuth" class="mensagem-feedback"></p>
+        </section>
+
+        <section id="secaoCatalogo">
+            <div class="filtros">
+                <input type="text" id="busca" placeholder="Pesquisar produto pelo nome...">
+                <select id="categoria">
+                    <option value="Todos">Todas as categorias</option>
+                </select>
+            </div>
+
+            <p id="mensagemBusca" class="mensagem-erro"></p>
+            <div id="produtos" class="produtos"></div>
+        </section>
+
+        <section id="carrinho" class="painel-box">
+            <h2>Carrinho de Compras</h2>
+            <div id="itensCarrinho"></div>
+
+            <div class="resumo">
+                <p>Quantidade de itens: <span id="totalItens">0</span></p>
+                <p>Subtotal: <span id="subtotal">R$ 0,00</span></p>
+                <p>Desconto (10% a partir de R$ 300,00): <span id="desconto">R$ 0,00</span></p>
+                <h3>Total: <span id="total">R$ 0,00</span></h3>
+                <button id="btnFinalizar">Finalizar compra</button>
+            </div>
+            <p id="mensagemPedido" class="mensagem-feedback"></p>
+        </section>
+
+        <section id="secaoMeusPedidos" class="painel-box oculto">
+            <h2>Meus Pedidos</h2>
+            <div id="listaMeusPedidos"></div>
+        </section>
+
+        <section id="secaoAdmin" class="painel-box oculto">
+            <h2>Painel Administrativo</h2>
+
+            <div class="indicadores-grid">
+                <div class="card-indicador">
+                    <span>Produtos ativos</span>
+                    <strong id="indTotalProdutos">0</strong>
+                </div>
+                <div class="card-indicador">
+                    <span>Estoque baixo / zerado</span>
+                    <strong id="indEstoqueBaixo">0</strong>
+                </div>
+                <div class="card-indicador">
+                    <span>Pedidos registrados</span>
+                    <strong id="indTotalPedidos">0</strong>
+                </div>
+            </div>
+
+            <h3>Cadastrar / Editar Produto</h3>
+            <form id="formProdutoAdmin" class="form-grid">
+                <input type="hidden" id="produtoEditId">
+                <input type="text" id="prodCodigo" placeholder="Código (ex: PRD-007)" required>
+                <input type="text" id="prodNome" placeholder="Nome do produto" required>
+                <select id="prodCategoria" required></select>
+                <input type="number" step="0.01" id="prodPreco" placeholder="Preço (ex: 150.00)" required>
+                <input type="number" id="prodEstoque" placeholder="Estoque inicial" required>
+                <input type="number" id="prodMinimo" placeholder="Estoque mínimo (padrão 3)" value="3">
+                <input type="text" id="prodImagem" placeholder="URL da imagem" required>
+                <div class="acoes-form">
+                    <button type="submit" id="btnSalvarProduto">Salvar Produto</button>
+                    <button type="button" id="btnCancelarEdicao" class="oculto">Cancelar Edição</button>
+                </div>
+            </form>
+
+            <h3>Produtos Cadastrados</h3>
+            <div id="listaProdutosAdmin"></div>
+
+            <h3>Movimentação de Estoque</h3>
+            <form id="formMovimentacao" class="form-grid">
+                <select id="movProduto" required></select>
+                <select id="movTipo" required>
+                    <option value="ENTRADA">ENTRADA</option>
+                    <option value="SAIDA">SAIDA</option>
+                    <option value="AJUSTE">AJUSTE</option>
+                </select>
+                <input type="number" id="movQuantidade" placeholder="Quantidade / Novo saldo" required>
+                <input type="text" id="movMotivo" placeholder="Motivo da movimentação" required>
+                <button type="submit">Registrar Movimentação</button>
+            </form>
+
+            <h3>Histórico de Movimentações</h3>
+            <div id="listaHistoricoEstoque"></div>
+
+            <h3>Pedidos dos Clientes</h3>
+            <div id="listaPedidosAdmin"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>2026 - TecnoStore</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

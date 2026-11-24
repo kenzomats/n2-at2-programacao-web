@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+header {
+    background-color: #7f38cf;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px 30px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.barra-acoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.barra-acoes button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.barra-acoes button:hover {
+    opacity: 0.9;
+}
+
+main {
+    width: 92%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+.oculto {
+    display: none;
+}
+
+.painel-box {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-top: 25px;
+}
+
+.abas-auth {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.abas-auth button {
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    background: #eee;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.abas-auth button.ativa {
+    background: #7f38cf;
+    color: white;
+    border-color: #7f38cf;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+}
+
+.form-grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-bottom: 20px;
+}
+
+input, select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+form button {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filtros {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#busca {
+    flex: 1;
+}
+
+.mensagem-erro {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.mensagem-feedback {
+    margin-top: 12px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.preco {
+    color: #008000;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.disponivel {
+    color: #008000;
+    font-weight: bold;
+}
+
+.indisponivel {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.btnAdicionar {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.btnAdicionar:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.item-carrinho, .linha-admin, .card-pedido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.controles {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controles button, .linha-admin button {
+    padding: 6px 11px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-remover {
+    background-color: #e53935;
+    color: white;
+}
+
+.resumo {
+    margin-top: 20px;
+    text-align: right;
+}
+
+#btnFinalizar {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 16px;
+}
+
+.indicadores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card-indicador {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.card-indicador strong {
+    display: block;
+    font-size: 24px;
+    margin-top: 6px;
+    color: #7f38cf;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
