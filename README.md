@@ -55,8 +55,8 @@ n2-loja/
 No terminal, acesse a pasta do projeto e instale os pacotes listados no `package.json`:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd n2-loja
+git clone https://github.com/kenzomats/n2-at2-programacao-web.git
+cd n2-at2-programacao-web
 npm install
 ```
 
