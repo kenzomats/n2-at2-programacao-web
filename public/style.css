@@ -268,3 +268,15 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
+.info-loja {
+    display:flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-loja {
+    height: 60px;
+    width: auto;
+    border-radius: 8px;
+}
